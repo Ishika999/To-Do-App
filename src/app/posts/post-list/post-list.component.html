@@ -1,0 +1,18 @@
+<mat-accordion multi="true"  *ngIf="posts.length > 0"> <!--multi allows to open more then 1 accordion-->
+    <mat-expansion-panel *ngFor="let post of posts,index as i"><!--*ngFor="let local of locals,index i"
+                                                    locals.slice(index)-->
+     <mat-expansion-panel-header>
+         {{post.title}}
+    </mat-expansion-panel-header>
+    <button color="warn" mat-raised-button (click)="posts.splice(i,1)">DELETE</button>
+    <p>{{post.content}}</p>  
+  </mat-expansion-panel>
+</mat-accordion>
+<!--<mat-accordion multi="true" *ngIf="ListPosts.length > 0"> 
+  <mat-expansion-panel *ngFor="let l of ListPosts,index as i"> 
+    <mat-expansion-panel-header> <mat-panel-title>{{l.Title}} </mat-panel-title>
+       <button color="warn" mat-raised-button (click)="ListPosts.splice(i,1)">DELETE</button>
+       </mat-expansion-panel-header> <p>{{l.Content}}</p> 
+      </mat-expansion-panel>
+     </mat-accordion> -->
+<p class="infotext mat-body-1" *ngIf="posts.length<=0">No Post Added Yet! </p>
